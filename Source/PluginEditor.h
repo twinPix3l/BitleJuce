@@ -53,6 +53,7 @@ private:
     juce::Image btj = ImageFileFormat::loadFrom (BinaryData::beetlejuice1_jpeg, BinaryData::beetlejuice1_jpegSize);
     juce::Image lim = ImageFileFormat::loadFrom (BinaryData::limlogo_png, BinaryData::limlogo_pngSize);
 
-
+    juce::Font fontBitle = Typeface::createSystemTypefaceFor(BinaryData::fontBitle_otf, BinaryData::fontBitle_otfSize);
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MyBitCrushAudioProcessorEditor)
 };

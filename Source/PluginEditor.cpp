@@ -16,21 +16,20 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
 	dwSlider->setSliderStyle (Slider::LinearHorizontal);
   	dwSlider->Slider::setColour(Slider::trackColourId, Colour(0xffA814AD));
   	dwSlider->Slider::setColour(Slider::backgroundColourId, Colours::silver);
-  
   	dwSlider->setTextBoxStyle (juce::Slider::TextBoxRight, false, 80, 20);
 
-  	dwSlider->setBounds (150, 54, 500, 16);
+  	dwSlider->setBounds (150, 64, 500, 16);
 
   	bdSlider.reset (new juce::Slider ("BitDepth"));
   	addAndMakeVisible (bdSlider.get());
   	bdSlider->setRange (1, 32, 1);
   	bdSlider->setValue(DEFAULT_BD);
   	bdSlider->setSliderStyle (Slider::LinearHorizontal);
-	bdSlider->Slider::setColour(Slider::trackColourId, Colour(0xff263238));
-  	bdSlider->Slider::setColour(Slider::backgroundColourId, Colours::yellow);
+	bdSlider->Slider::setColour(Slider::backgroundColourId, Colours::yellow);
+    bdSlider->Slider::setColour(Slider::trackColourId, Colour(0xff263238));
   	bdSlider->setTextBoxStyle (Slider::TextBoxRight, false, 80, 20);
 
-  	bdSlider->setBounds (150, 86, 500, 16);
+  	bdSlider->setBounds (150, 96, 500, 16);
 
   	rtSlider.reset (new juce::Slider ("Rate"));
   	addAndMakeVisible (rtSlider.get());
@@ -40,13 +39,13 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
   	rtSlider->Slider::setColour(Slider::trackColourId, Colours::yellow);
   	rtSlider->setTextBoxStyle (Slider::TextBoxRight, false, 80, 20);
 
-  	rtSlider->setBounds (150, 118, 500, 16);
+  	rtSlider->setBounds (150, 128, 500, 16);
 
   	mdButton.reset (new juce::ToggleButton ("Invert"));
   	mdButton->setColour(0x1000281, Colours::black);
 	addAndMakeVisible (mdButton.get());
 
-  	mdButton->setBounds (543, 146, 72, 24);
+  	mdButton->setBounds (543, 156, 72, 24);
 
   	fqSlider.reset (new juce::Slider ("LFO freq (Hz)"));
   	addAndMakeVisible (fqSlider.get());
@@ -56,7 +55,7 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
   	fqSlider->Slider::setColour(Slider::trackColourId, Colours::yellow);
   	fqSlider->setTextBoxStyle (Slider::TextBoxRight, false, 80, 20);
 
-  	fqSlider->setBounds (150, 182, 500, 16);
+  	fqSlider->setBounds (150, 192, 500, 16);
 
   	amSlider.reset (new juce::Slider ("Mod Amount"));
   	addAndMakeVisible (amSlider.get());
@@ -66,7 +65,7 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
   	amSlider->Slider::setColour(Slider::trackColourId, Colours::yellow);
   	amSlider->setTextBoxStyle (Slider::TextBoxRight, false, 80, 20);
 
-  	amSlider->setBounds (150, 214, 500, 16);
+  	amSlider->setBounds (150, 224, 500, 16);
 
   	wfSlider.reset (new juce::Slider ("Waveform"));
   	addAndMakeVisible (wfSlider.get());
@@ -77,7 +76,7 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
   	wfSlider->Slider::setColour(Slider::backgroundColourId, Colour(0xff263238));
 	wfSlider->setTextBoxStyle (Slider::TextBoxRight, false, 80, 20);
 
-  	wfSlider->setBounds (150, 246, 500, 16);
+  	wfSlider->setBounds (150, 256, 500, 16);
 
   	gpSlider.reset (new juce::Slider ("Volume"));
   	addAndMakeVisible (gpSlider.get());
@@ -87,7 +86,7 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
   	gpSlider->Slider::setColour(Slider::trackColourId, Colour(0xffA814AD));
   	gpSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
 
-  	gpSlider->setBounds (685, 74, 48, 250);
+  	gpSlider->setBounds (695, 84, 48, 270);
 
   	dwAttachment.reset(new SliderAttachment(parameters, NAME_DW, *dwSlider));
   	bdAttachment.reset(new SliderAttachment(parameters, NAME_BD, *bdSlider));
@@ -180,41 +179,56 @@ void MyBitCrushAudioProcessorEditor::paint (juce::Graphics& g)
     	{
         	int x = 0, y = 0, width = 768, height = 380;
         	juce::Colour fillColour1 = Colours::black, fillColour2 = Colours::silver;
-		g.setGradientFill (juce::ColourGradient (fillColour1, 340.0f - 0.0f + x, 240.0f - 0.0f + y,
+		    g.setGradientFill (juce::ColourGradient (fillColour1, 340.0f - 0.0f + x, 240.0f - 0.0f + y,
                                                  	 fillColour2, 40.0f - 0.0f + x, 0.0f - 0.0f + y,
                                                  	 false));
         	g.fillRect (x, y, width, height);
     	}
 	
-	{
-		g.setFont (40.0f);
-		g.setColour (juce::Colours::silver);
-		g.drawText ("__________________", getLocalBounds(), juce::Justification::topLeft, true);
-		g.setColour (Colour(0xffA814AD));
-		g.drawText ("Bitle", getLocalBounds(), juce::Justification::centredTop, true);
-		g.setColour (juce::Colours::silver);
-		g.drawText ("________Juce", getLocalBounds(), juce::Justification::centredTop, true);
-		g.setFont (40.0f);
-		g.setColour (Colours::silver);
-		g.setOpacity(0.7f);
-		g.drawText ("v 1.0.0", getLocalBounds(), juce::Justification::topRight, true);
-		g.setFont (20.0f);
-		g.setColour (Colours::black);
-		g.setOpacity(1.0f);
-		g.drawText ("A. Castano", getLocalBounds(), juce::Justification::bottomLeft, true);
-	}
+	    {
+		    g.setColour (Colour(0xffA814AD));
+            g.setOpacity(1.0f);
+            g.setFont(fontBitle);
+            g.setFont(60.f);
+            g.drawText("Bitle", 0, 0, 384, 50, juce::Justification::topRight, true);
 
-	{
-		g.setColour(Colours::black);
-		g.setOpacity(0.25);
-		g.drawImageAt(btj, 0, 0, false);
-	}
+		    g.setColour (juce::Colours::silver);
+		    g.drawText ("Juce", 384, 0, 384, 50, juce::Justification::topLeft, true);
+        
+            g.resetToDefaultState();
+            g.setFont(20.0f);
+		    g.setColour (Colours::silver);
+		    g.setOpacity(1.0f);
+		    g.drawText ("v: 1.0.0", 675, 0, 93, 55, juce::Justification::centredBottom, true);
 
-	{
-		//g.setColour(Colours::black);
-		g.setOpacity(0.50);
-		g.drawImageAt(lim, 557, 284, false);
-	}
+		    g.setColour (Colours::silver);
+		    g.setOpacity(1.0f);
+		    g.drawText ("Coded at Laboratorio di Informatica Musicale by A. C.", 2, 281, 675, 99, juce::Justification::bottomLeft, true);
+	    }
+
+	    {
+		    g.setOpacity(0.25);
+		    g.drawImageAt(btj, 0, 0, false);
+
+		    g.setOpacity(0.75f);
+            g.setImageResamplingQuality(juce::Graphics::ResamplingQuality::highResamplingQuality);
+		    g.drawImageAt(lim, 579, 284, false);
+	    }
+
+        {
+            g.setColour(Colours::silver);
+            Line<float> line1(Point<float>(0, 55), Point<float>(768, 55));
+            g.drawLine(line1, 2.0f);
+
+            g.setColour(Colours::silver);
+            Line<float> line2(Point<float>(675, 55), Point<float>(675, 384));
+            g.drawLine(line2, 2.0f);
+
+            g.setColour(Colours::silver);
+            Line<float> line3(Point<float>(0, 281), Point<float>(675, 281));
+            g.drawLine(line3, 2.0f);
+
+        }
 }
 
 void MyBitCrushAudioProcessorEditor::resized()

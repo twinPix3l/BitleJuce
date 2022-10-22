@@ -52,6 +52,7 @@ private:
 
     juce::Image btj = ImageFileFormat::loadFrom (BinaryData::beetlejuice1_jpeg, BinaryData::beetlejuice1_jpegSize);
     juce::Image lim = ImageFileFormat::loadFrom (BinaryData::limlogo_png, BinaryData::limlogo_pngSize);
+    juce::Image limR = lim.rescaled(95, 95, Graphics::highResamplingQuality);
 
     juce::Font fontBitle = Typeface::createSystemTypefaceFor(BinaryData::fontBitle_otf, BinaryData::fontBitle_otfSize);
     

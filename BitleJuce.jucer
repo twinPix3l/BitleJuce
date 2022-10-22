@@ -21,7 +21,7 @@
         <FILE id="wUH4r2" name="beetlejuice1.jpeg" compile="0" resource="1"
               file="../MyBitCrush/beetlejuice1.jpeg"/>
         <FILE id="hobpvt" name="fontBitle.otf" compile="0" resource="1" file="../MyBitCrush/fontBitle.otf"/>
-        <FILE id="cfBgkw" name="limlogo.png" compile="0" resource="1" file="../MyBitCrush/limlogo.png"/>
+        <FILE id="KjQrrO" name="limlogo.png" compile="0" resource="1" file="../MyBitCrush/limlogo.png"/>
       </GROUP>
       <GROUP id="{4971BC72-E9BD-F7EE-78A6-D739AC96EB99}" name="GUI">
         <FILE id="rrC9wW" name="PluginEditor.cpp" compile="1" resource="0"

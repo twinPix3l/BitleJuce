@@ -26,7 +26,7 @@ MyBitCrushAudioProcessorEditor::MyBitCrushAudioProcessorEditor (MyBitCrushAudioP
   	bdSlider->setValue(DEFAULT_BD);
   	bdSlider->setSliderStyle (Slider::LinearHorizontal);
 	bdSlider->Slider::setColour(Slider::backgroundColourId, Colours::yellow);
-    bdSlider->Slider::setColour(Slider::trackColourId, Colour(0xff263238));
+    	bdSlider->Slider::setColour(Slider::trackColourId, Colour(0xff263238));
   	bdSlider->setTextBoxStyle (Slider::TextBoxRight, false, 80, 20);
 
   	bdSlider->setBounds (150, 96, 500, 16);
@@ -185,48 +185,49 @@ void MyBitCrushAudioProcessorEditor::paint (juce::Graphics& g)
         	g.fillRect (x, y, width, height);
     	}
 	
-	    {
-		    g.setColour (Colour(0xffA814AD));
-            g.setOpacity(1.0f);
-            g.setFont(fontBitle);
-            g.setFont(60.f);
-            g.drawText("Bitle", 0, 0, 384, 50, juce::Justification::topRight, true);
+	{
+		g.setColour (Colour(0xffA814AD));
+            	g.setOpacity(1.0f);
+            	g.setFont(fontBitle);
+            	g.setFont(60.f);
+            	g.drawText("Bitle", 0, 0, 384, 50, juce::Justification::topRight, true);
 
-		    g.setColour (juce::Colours::silver);
-		    g.drawText ("Juce", 384, 0, 384, 50, juce::Justification::topLeft, true);
+	    	g.setColour (juce::Colours::silver);
+	    	g.drawText ("Juce", 384, 0, 384, 50, juce::Justification::topLeft, true);
         
-            g.resetToDefaultState();
-            g.setFont(20.0f);
-		    g.setColour (Colours::silver);
-		    g.setOpacity(1.0f);
-		    g.drawText ("v: 1.0.0", 675, 0, 93, 55, juce::Justification::centredBottom, true);
+            	g.resetToDefaultState();
+            	g.setFont(20.0f);
+		g.setColour (Colours::silver);
+		g.setOpacity(1.0f);
+		g.drawText ("v: 1.0.0", 675, 0, 93, 55, juce::Justification::centredBottom, true);
 
-		    g.setColour (Colours::silver);
-		    g.setOpacity(1.0f);
-		    g.drawText ("Coded at Laboratorio di Informatica Musicale by A. C.", 2, 281, 675, 99, juce::Justification::bottomLeft, true);
-	    }
+		g.setFont(15.0f);
+		g.setColour (Colours::silver);
+		g.setOpacity(1.0f);
+		g.drawText ("Coded at Laboratorio di Informatica Musicale by A. C.", 2, 281, 675, 99, juce::Justification::bottomLeft, true);
+	}
 
-	    {
-		    g.setOpacity(0.25);
-		    g.drawImageAt(btj, 0, 0, false);
+	{
+		g.setOpacity(0.25);
+		g.drawImageAt(btj, 0, 0, false);
 
-		    g.setOpacity(0.75f);
-            g.setImageResamplingQuality(juce::Graphics::ResamplingQuality::highResamplingQuality);
-		    g.drawImageAt(lim, 579, 284, false);
-	    }
+		g.setOpacity(0.75f);
+            	g.setImageResamplingQuality(juce::Graphics::ResamplingQuality::highResamplingQuality);
+		g.drawImageAt(limR, 579, 284, false);
+	}
 
         {
-            g.setColour(Colours::silver);
-            Line<float> line1(Point<float>(0, 55), Point<float>(768, 55));
-            g.drawLine(line1, 2.0f);
+            	g.setColour(Colours::silver);
+            	Line<float> line1(Point<float>(0, 55), Point<float>(768, 55));
+            	g.drawLine(line1, 2.0f);
 
-            g.setColour(Colours::silver);
-            Line<float> line2(Point<float>(675, 55), Point<float>(675, 384));
-            g.drawLine(line2, 2.0f);
+            	g.setColour(Colours::silver);
+            	Line<float> line2(Point<float>(675, 55), Point<float>(675, 384));
+            	g.drawLine(line2, 2.0f);
 
-            g.setColour(Colours::silver);
-            Line<float> line3(Point<float>(0, 281), Point<float>(675, 281));
-            g.drawLine(line3, 2.0f);
+            	g.setColour(Colours::silver);
+            	Line<float> line3(Point<float>(0, 281), Point<float>(675, 281));
+            	g.drawLine(line3, 2.0f);
 
         }
 }
